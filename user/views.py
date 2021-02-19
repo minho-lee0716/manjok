@@ -10,9 +10,9 @@ class SignInView(View):
         password = payload.get('password', None)
 
         if phone_number is None or password is None:
-            return HttpResponse(400)
+            return JsonResponse({'message':'필수 정보를 입력해야 합니다.'}, status=400)
 
         if phone_number == '01012345678' and password == 'a123':
-            return HttpResponse()
+            return JsonResponse({'message':'로그인 성공'}, status=200)
         else:
-            return HttpResponse(401)
+            return JsonResponse({'message':'휴대폰 번호 또는 비밀번호를 확인하세요.'}, status=401)
