@@ -16,3 +16,6 @@ class User(models.Model):
 
 class UserTalentLogs(models.Model):
     user_id = models.ForeignKey(User)
+
+    class Meta:
+        db_table = 'user_talent_logs'
